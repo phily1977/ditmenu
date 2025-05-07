@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式导航菜单</title>
+    <script type="text/javascript" src="ditmenu.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" href="ditmenu.css">
+    <style>
+    /* 重置样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+/* 主内容区域 */
+.main-content {
+    padding: 20px;
+    margin-top: 60px; /* 为顶部导航留出空间 */
+    transition: transform 0.3s ease;
+}
+
+
+    </style>
+</head>
+<body>
+	<div class="top-logo">DiT MENU</div>
+    <!-- PC端顶部导航 -->
+	<div class="menuwrap">
+    <nav class="main-nav">
+        <ul class="main-menu main-menu-items" id="mainMenu">
+            <li class="main-menu-item">
+                <a href="#"><span class="item-left"><i class="fas fa-home"></i></span> <span>首页</span> <span class="item-right"><i class="fas"></i></span></a>
+            </li>
+            <li class="main-menu-item has-submenu">
+                <a href="#">
+					<span><i class="fas fa-user"></i></span> 
+					<span>用户管理</span> 
+					<span><i class="fas fa-chevron-down arrow"></i></span>
+				</a>
+                <ul class="main-submenu">
+                    <li><a href="#">用户列表</a></li>
+                    <li><a href="#">添加用户</a></li>
+                    <li><a href="#">权限设置</a></li>
+                </ul>
+            </li>
+            <li class="main-menu-item has-submenu">
+                <a href="#">
+					<span><i class="fas fa-cog"></i></span> 
+					<span>系统设置</span> 
+					<span><i class="fas fa-chevron-down arrow"></i></span>
+				</a>
+                <ul class="main-submenu">
+                    <li><a href="#">基本设置</a></li>
+                    <li><a href="#">高级设置</a></li>
+                </ul>
+            </li>
+            <li class="main-menu-item">
+                <a href="#"><i class="fas fa-info-circle"></i> 关于 <i class="fas"></i></a>
+            </li>
+        </ul>
+        <button class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+		<div class="mobile-logo">DiT MENU</div>
+		<button class="close-btn" id="closeMenu">
+                <i class="fas fa-times"></i>
+        </button>
+    </nav>
+	</div>
+    <!-- 移动端左侧滑入菜单 -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <h1>响应式导航菜单演示</h1>
+        <p>在移动设备上会显示左侧滑入菜单，在电脑上会显示顶部下拉菜单。</p>
+    </main>
+
+    <script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var dmenu = new DiTMENU({'css':'theme/skyblue.css'});
+		dmenu.bind(".menuwrap");
+		dmenu.show();
+	});
+    </script>
+</body>
+</html>
